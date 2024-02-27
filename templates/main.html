@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Mater.ial+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-icons.css'%}">
+
+   
+</head>
+<body>
+    <!-----navbar-->
+    <nav class="navbar navbar-expand-lg" style="background-color: rgb(85, 8, 85);">
+        <div class="container-fluid">
+            <img src="{% static 'images/bande1.png'%}" alt="">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ">
+              <a class="nav-link text-white" href="{% url 'acceuil'%}">Acceuil</a>
+              <a class="nav-link text-white" aria-current="page" href="{% url 'list_produit'%}">Produit</a>
+              <a class="nav-link text-white" href="{% url 'index'%}">Client</a>
+              <a class="nav-link text-white " href="{% url 'commande'%}">Commande</a>
+            </div>
+          </div>
+          <span style="color: white;"> {{request.user}} <span style="background-color: rgb(9, 193, 9); height: 20px; width: 30px; border-radius: 10px 10px ; color: rgb(9, 193, 9);">3</span> / <a href="{% url 'deconnexion'%}" class="btn bg-primary" style="color: white;">Logout</a></span>
+        </div>
+      </nav>
+      
+    <!----endnavbar-->
+    {% block content %}
+    {%  endblock content %}
+
+    <!--footer-->
+    <footer class="text-center mb-0 mt-5">
+        <p>&copy;Django, Jules-christ </p>
+    </footer>
+    <!--endfooter-->
+
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+</body>
+</html>

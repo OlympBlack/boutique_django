@@ -1,0 +1,76 @@
+{% extends 'main.html'%}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-7 col-sm-10 ">
+            <h4>Clients:</h4>
+            <hr>
+            <div class="bg-white">
+                <!--<p class="btn btn-primary px-5 btn-sm" >Créer un client</p>-->
+                <div class="card">
+                  <div class="card-header bg-primary">
+                    <h5 class="text-center text-white">Liste des clients</h5>            
+                  </div>
+                  <div class="card-body">
+                    <blockquote class="blockquote mb-0" style="font-size: 15px;">
+                      <table>
+                        <thead class="bg-gray-50">
+                          <tr style="text-align:center;">
+                            <th class="px-2 py-2 text-xs text-gray-500">ID</th>
+                            <th class="px-2 py-2 text-xs text-gray-500">Client</th>
+                            <th class="px-2 py-2 text-xs text-gray-500">Téléphone</th>
+                            <th class="px-2 py-2 text-xs text-gray-500">Détail</th>
+                            <th class="px-2 py-2 text-xs text-gray-500">Supprimer</th>
+                          </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                          {% for client in clients %}
+                            <tr class="whitespace-nowrap">
+                                <td class="px-4 py-2 text-sm text-gray-500">{{client.id}}</td>
+                                <td class="px-4 py-2">{{client.nom}}</td>
+                                <td class="px-4 py-2">{{client.telephone}}</td>
+                                <td class="px-4 py-2"><a class="btn btn-info btn-sm px-3" href="{% url 'client' client.id %}">Voir</a></td>
+                                <th>
+                                  <form action="{% url 'supprimer_client' client.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-danger btn-sm" type="submit">Supprimer</button>
+                                  </form>
+                                </th>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>                 
+                    </blockquote>
+                  </div>
+                </div>
+                
+            </div>
+            <hr>
+        </div>
+
+        <div class="col-lg-5 col-sm-12">
+          <h4>Ajout:</h4>
+            <hr>
+          <div class="bg-white">
+            <!--<p class="btn btn-primary px-5 btn-sm" >Créer un client</p>-->
+            <div class="card">
+              <div class="card-header bg-primary">
+                <h5 class="text-center text-white">Ajouter un nouveau client</h5>            
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0" style="font-size: 15px;">
+                  <form action="" method="post">
+                    {% csrf_token %}
+                    {{form}}
+                    <button class="btn btn-success mt-3">Ajouter</button>
+                  </form>                     
+                </blockquote>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

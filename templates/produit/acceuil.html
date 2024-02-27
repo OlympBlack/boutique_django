@@ -1,0 +1,71 @@
+{% extends 'main.html'%}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-4 col-sm-12">          
+            <div class="card">
+                <div class="card-header bg-primary" style="color: white;">
+                    <h5>Totoal des clients</h5>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0" style="font-size: 15px;">
+                    <h1 class="text-center">{{client_total}}</h1>                 </blockquote>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">      
+            <div class="card">
+                <div class="card-header bg-primary" style="color: white;">
+                    <h5>Total des Produit</h5>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0" style="font-size: 15px;">
+                    <h1 class="text-center">4</h1>                     
+                  </blockquote>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+            <div class="card">
+                <div class="card-header bg-primary" style="color: white;">
+                    <h5>Total des commandes</h5>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0" style="font-size: 15px;">
+                    <h1 class="text-center">4</h1>                  
+                  </blockquote>
+                </div>
+              </div>
+        </div>
+        
+    </div>
+</div>
+
+<hr>
+<container class="buidl">
+    <div class="row  mt-3">
+        <div class="col-12">
+           <div class="bg-white">
+                <!--<button class="btn btn-primary">Seach</button>-->
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                      <a class="navbar-brand">Pose moi une question</a>
+                      <form class="d-flex" role="search">
+                        <input class="form-control me-2 border-primary" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                      </form>
+                    </div>
+                </nav>        
+           </div>
+        </div>
+    </div>
+</container>
+
+
+
+
+
+  
+{% endblock content %}

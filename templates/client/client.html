@@ -1,0 +1,115 @@
+{% extends 'main.html'%}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-4 col-sm-12">          
+            <div class="card">
+                <div class="card-header">
+                    <h5>Action</h5>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0" style="font-size: 15px;">
+                    <a href="{% url 'supprimer_client' client.id %}" class="btn btn-success  text-green btn-sm px-5">Modifier un client</a><br>
+                    <form action="">
+                      {% csrf_token %}
+                      <a href="" class="btn btn-danger mt-2 text-red btn-sm px-5">Supprimer un client</a>             
+                    </form>
+                       </blockquote>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">      
+            <div class="card">
+                <div class="card-header">
+                    <h5>Informations</h5>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0" style="font-size: 15px;">
+                    <p >Nom: {{client.nom}}</p>
+                    <p>Téléphone: {{client.telephone}}</p>                    
+                  </blockquote>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Total des commandes</h5>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0" style="font-size: 15px;">
+                    <h1 class="text-center">{{commande_total}}</h1>                  
+
+                  </blockquote>
+                </div>
+              </div>
+        </div>
+        
+    </div>
+</div>
+
+<hr>
+<container class="buidl">
+    <div class="row  mt-3">
+        <div class="col-12">
+           <div class="bg-white">
+                <!--<button class="btn btn-primary">Seach</button>-->
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                      <a class="navbar-brand">Pose moi une question</a>
+                      <form class="d-flex" role="search">
+                        <input class="form-control me-2 border-primary" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                      </form>
+                    </div>
+                </nav>        
+           </div>
+        </div>
+    </div>
+</container>
+<hr>
+
+<div class="container-build">
+    <div class="row bg-white">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0" style="font-size: 15px;">
+                    <table>
+                        <thead class="bg-gray-50">
+                          <tr>
+                            <th class="px-2 py-2 text-xs text-gray-500">Produt</th>
+                            <th class="px-2 py-2 text-xs text-gray-500">Date de commande</th>
+                            <th class="px-2 py-2 text-xs text-gray-500">Status</th>
+                            <th class="px-2 py-2 text-xs text-gray-500">Mise à jour</th>
+                            <th class="px-2 py-2 text-xs text-gray-500">Supprimer</th>
+                          </tr>
+                        </thead>
+                        {% for commande in commandes %}
+                        <tbody class="" >   
+                           
+                           <tr class="whitespace-nowrap">
+                            <td class="px-4 py-2 text-sm text-gray-500">{{commande.produit}}</td>
+                            <td class="px-4 py-2 text-sm text-gray-500">{{commande.date_creation}}</td>
+                            <td class="px-4 py-2 text-sm text-gray-500">{{commande.status}}</td>
+                            <td class="px-4 py-2 text-sm text-gray-500"><a class="btn btn-warning btn-sm" href="">Mise à jour</a></td>
+                            <td class="px-4 py-2 text-sm text-gray-500" ><a class="btn btn-danger btn-sm" href="">Supprimer</a></td>
+                            </td> 
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>         
+                  </blockquote>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+  
+{% endblock content %}
